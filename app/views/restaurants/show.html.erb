@@ -1,0 +1,28 @@
+<div class="container">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/12026725/pexels-photo-12026725.jpeg);">
+  <div class="container">
+    <h1><%= @restaurant.name %></h1>
+    <h2 class="text-light"><%= @restaurant.category %> cuisine</h2>
+    <p><%= @restaurant.address %></p>
+  </div>
+</div>
+
+<p class="text-grey mt-3">Tel: <%= @restaurant.phone_number %></p>
+
+<%= link_to "Create Review", new_restaurant_review_path(@restaurant), class: "text-decoration-none text-white btn btn-primary" %>
+
+ <%= link_to "Home", restaurants_path, class: "btn btn-secondary mt-3" %>
+ 
+<div class="container">
+  <h2 class="mt-4">Reviews</h2>
+  <div class="flex-column flex-md-row mt-4">
+    <% @reviews.each do |review| %>
+    <h3>Rating: <%= review.rating %> / 5</h3>
+    <p class="fst-italic"><%= review.content %></p>
+    <% end %>
+  </div>
+</div>
+
+
+</div>

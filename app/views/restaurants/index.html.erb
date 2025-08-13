@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Restaurants</h1>
+
+  <div class="card-product">
+  <%= @restaurants.each do |restaurant| %>
+    <%= image_tag "#{restaurant.category.downcase}.jpg", alt: "#{restaurant.category}" %>
+    <div class="card-product-infos">
+      <%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none text-black"  %>
+      <p><%= restaurant.category %></p>
+    </div>
+  <% end %>
+  </div>
+
+  <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary mt-4" %>
+
+</div>
